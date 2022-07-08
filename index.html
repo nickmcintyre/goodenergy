@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+		<title>Good Energy</title>
+		<meta name="description" content="">
+		<meta name="author" content="Nick McIntyre">
+		<meta name="keywords" content="energy, environment, renewable, design, data, p5.js">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-16x16.png">
+		<link rel="manifest" href="/assets/images/logo/site.webmanifest">
+		<link rel="mask-icon" href="/assets/images/logo/safari-pinned-tab.svg" color="#40e0d0">
+		<link rel="shortcut icon" href="/assets/images/logo/favicon.ico">
+		<meta name="msapplication-TileColor" content="#40e0d0">
+		<meta name="msapplication-config" content="/assets/images/logo/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+
+		<link rel="stylesheet" href="/css/reset.css">
+		<link rel="stylesheet" href="/css/reveal.css">
+		<link rel="stylesheet" href="/css/black.css">
+		<link rel="stylesheet" href="/plugin/highlight/abcde.css">
+
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Preface -->
+				<section>
+					<section data-markdown="/writing/preface/title.md"></section>
+					<section id="contents" data-markdown="/writing/preface/contents.md"></section>
+				</section>
+				<!-- Chapter 1. Data -->
+				<section>
+					<section id="data" data-markdown="/writing/chapter-1/data.md"></section>
+					<section id="sketches" data-markdown="/writing/chapter-1/sketches.md"></section>
+					<section id="variables" data-markdown="/writing/chapter-1/variables.md"></section>
+					<section id="datasets" data-markdown="/writing/chapter-1/datasets.md"></section>
+					<section id="plots" data-markdown="/writing/chapter-1/plots.md"></section>
+				</section>
+				<!-- Chapter 2. Batteries -->
+				<section>
+					<section id="batteries" data-markdown="/writing/chapter-2/batteries.md"></section>
+					<section id="electricity" data-markdown="/writing/chapter-2/electricity.md"></section>
+					<section id="circuits" data-markdown="/writing/chapter-2/circuits.md"></section>
+					<section id="electrochemistry" data-markdown="/writing/chapter-2/electrochemistry.md"></section>
+					<section id="battery-charging" data-markdown="/writing/chapter-2/battery-charging.md"></section>
+				</section>
+				<!-- Chapter 3. Wind Power -->
+				<section>
+					<section id="wind-power" data-markdown="/writing/chapter-3/wind-power.md"></section>
+					<section id="kinetic-energy" data-markdown="/writing/chapter-3/kinetic-energy.md"></section>
+					<section id="power-and-energy" data-markdown="/writing/chapter-3/power-and-energy.md"></section>
+					<section id="wind-turbines" data-markdown="/writing/chapter-3/wind-turbines.md"></section>
+					<section id="wind-farms" data-markdown="/writing/chapter-3/wind-farms.md"></section>
+				</section>
+				<!-- Chapter 4. Solar Power -->
+				<section>
+					<section id="solar-power" data-markdown="/writing/chapter-4/solar-power.md"></section>
+					<section id="radiation" data-markdown="/writing/chapter-4/radiation.md"></section>
+					<section id="sunshine-calculator" data-markdown="/writing/chapter-4/sunshine-calculator.md"></section>
+					<section id="solar-panels" data-markdown="/writing/chapter-4/solar-panels.md"></section>
+					<section id="solar-arrays" data-markdown="/writing/chapter-4/solar-arrays.md"></section>
+				</section>
+				<!-- Chapter 5. Smart Grids -->
+				<section>
+					<section id="smart-grids" data-markdown="/writing/chapter-5/smart-grids.md"></section>
+					<section id="networks" data-markdown="/writing/chapter-5/networks.md"></section>
+					<section id="power-flow" data-markdown="/writing/chapter-5/power-flow.md"></section>
+					<section id="demand-side-management" data-markdown="/writing/chapter-5/demand-side-management.md"></section>
+					<section id="optimization" data-markdown="/writing/chapter-5/optimization.md"></section>
+				</section>
+				<!-- Appendix -->
+				<section>
+					<section id="appendix" data-markdown="/writing/appendix/appendix.md"></section>
+				</section>
+			</div>
+		</div>
+
+		<script src="/js/reveal.js"></script>
+		<script src="/plugin/markdown/markdown.js"></script>
+		<script src="/plugin/highlight/highlight.js"></script>
+		<script src="/plugin/math/math.js"></script>
+		<script src="/p5-widget/p5-widget.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				center: false,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+			});
+			Reveal.on('slidechanged', (event) => {
+				p5Widget.replaceAll();
+				const { currentSlide, previousSlide } = event;
+
+				const frames = currentSlide.getElementsByTagName("iframe");
+				frames.forEach((f) => f.src = f.src);
+			});
+		</script>
+	</body>
+</html>
