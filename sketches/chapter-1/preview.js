@@ -1,22 +1,28 @@
+let url = 'https://data.goodenergy.cc/wind/2008.csv'
+let wind
+let plot
+
+function preload() {
+  wind = loadTable(url, 'csv', 'header')
+}
+
 function setup() {
-  createCanvas(200, 200)
-  describe('A set of points shaped like a bear')
+  createCanvas(400, 400)
+
+  wind.parseDates('Time')
+  wind.inferTypes()
+
+  plot = createPlot(wind)
+
+  noLoop()
+
+  describe('A histogram of wind speed values')
 }
   
 function draw() {
-  background('midnightblue')
-  drawGreatBear()
-  // drawLittleBear()
-}
-  
-function drawGreatBear() {
-  stroke('ghostwhite')
-  strokeWeight(3)
-  point(20, 140)
-  point(45, 135)
-  point(65, 145)
-  point(85, 152)
-  point(88, 170)
-  point(120, 172)
-  point(122, 155)
+  plot.title('Distribution of Galveston\'s offshore wind speeds in 2008')
+  plot.xlabel('Wind speed (m/s)')
+  plot.ylabel('Number of hours')
+  plot.bar({ x: 'Speed' })
+  plot.render()
 }

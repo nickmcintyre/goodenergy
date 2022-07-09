@@ -230,8 +230,8 @@
 
 	"use strict";
 	exports.P5_VERSION = '1.4.1';
-	exports.PREVIEW_WIDTH = 300;
-	exports.HEIGHT = 300;
+	exports.PREVIEW_WIDTH = 500;
+	exports.HEIGHT = 500;
 	exports.MAX_RUN_TIME = 1000;
 
 

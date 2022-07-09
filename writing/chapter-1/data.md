@@ -11,3 +11,4 @@
     </div>
     <div></div>
 </div>
+<script type="text/p5" src="/sketches/chapter-1/preview.js"></script>

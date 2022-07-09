@@ -20,7 +20,7 @@
                 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
         </p>
         <p class="main-text small-text">
-            <a rel="license" href="https://opensource.org/licenses/MIT" target="_blank"><img alt="Open Source Initiative" style="border-width:0; width:88px; height:88px; margin: 0;" src="/assets/images/osi.png" /></a>
+            <a rel="license" href="https://opensource.org/licenses/MIT" target="_blank"><img alt="Open Source Initiative" style="border-width:0; margin: 0;" src="/assets/images/osi.png" /></a>
             <br>
             This book's <a href="https://github.com/nickmcintyre/goodenergy" target="_blank">code</a> and
             examples are licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.

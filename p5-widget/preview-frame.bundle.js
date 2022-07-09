@@ -131,7 +131,8 @@
 	        errorCb(message, line);
 	    });
 	    loadScripts([
-	        p5url(p5version),
+	        '/js/p5.js',
+	        '/js/numero.js',
 	    ], function () {
 	        document.body.appendChild(sketchScript);
 	        if (document.readyState === 'complete') {
