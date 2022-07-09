@@ -1,28 +1,39 @@
-let url = 'https://data.goodenergy.cc/wind/2008.csv'
-let wind
-let plot
+let url = 'https://data.goodenergy.cc/wind/2008.csv';
+let wind;
+let plot;
 
 function preload() {
-  wind = loadTable(url, 'csv', 'header')
+  wind = loadTable(url, 'csv', 'header');
 }
 
 function setup() {
-  createCanvas(400, 400)
+  createCanvas(400, 400);
 
-  wind.parseDates('Time')
-  wind.inferTypes()
+  wind.parseDates('Time');
+  plot = createPlot(wind);
 
-  plot = createPlot(wind)
-
-  noLoop()
-
-  describe('A histogram of wind speed values')
+  describe('A line plot of wind speed values with a hurricane rotating near a spike in wind speed.');
 }
-  
+
 function draw() {
-  plot.title('Distribution of Galveston\'s offshore wind speeds in 2008')
-  plot.xlabel('Wind speed (m/s)')
-  plot.ylabel('Number of hours')
-  plot.bar({ x: 'Speed' })
-  plot.render()
+  plot.title('2008 Galveston offshore wind speed at 100m');
+  plot.xlabel('Time');
+  plot.ylabel('Wind speed (m/s)');
+  plot.line({ x: 'Time', y: 'Speed' });
+  plot.render();
+
+  hurricane();
+}
+
+function hurricane() {
+  translate(280, 70);
+  stroke('red');
+  strokeWeight(5);
+  fill('white');
+  let r = 10;
+  circle(0, 0, 2 * r);
+  let angle = -frameCount / 10;
+  rotate(angle);
+  line(0, -r, 1.5 * r, -r);
+  line(0, r, -1.5 * r, r);
 }
