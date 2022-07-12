@@ -216,11 +216,14 @@ function runCircuit() {
   // compute supply and demand
   const maxCharge = battery.capacity / battery.cRate;
   if (solarEnergy > fanEnergy) {
+    // charging
+    let demand = battery.capacity - battery.wh[last - 1];
     let supply = solarEnergy - fanEnergy;
-    supply = constrain(supply, 0, maxCharge);
+    demand = min(demand, maxCharge);
+    supply = min(supply, demand);
     battery.wh[last] = battery.wh[last - 1] + supply;
-    battery.wh[last] = constrain(battery.wh[last], 0, battery.capacity);
   } else {
+    // discharging
     let demand = fanEnergy - solarEnergy;
     let supply = battery.wh[last - 1] - (1 - battery.maxdod) * battery.capacity;
     supply = constrain(supply, 0, maxCharge);

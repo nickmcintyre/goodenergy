@@ -1,8 +1,8 @@
-let url = 'https://data.goodenergy.cc/wind/2008.csv';
 let wind;
 let plot;
 
 function preload() {
+  let url = 'https://data.goodenergy.cc/wind/2008.csv';
   wind = loadTable(url, 'csv', 'header');
 }
 
@@ -10,9 +10,11 @@ function setup() {
   createCanvas(400, 400);
 
   wind.parseDates('Time');
+  wind.inferTypes();
   plot = createPlot(wind);
+  plot.configure({ majorTicks: 2 });
 
-  describe('A line plot of wind speed values with a hurricane rotating near a spike in wind speed.');
+  describe('A noisy line plot of wind speed versus time with a hurricane rotating near a spike in wind speed.');
 }
 
 function draw() {
@@ -26,7 +28,7 @@ function draw() {
 }
 
 function hurricane() {
-  translate(280, 70);
+  translate(275, 75);
   stroke('red');
   strokeWeight(5);
   fill('white');
