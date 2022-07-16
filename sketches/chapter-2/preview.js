@@ -2,26 +2,29 @@ let plot;
 const battery = {
   ah: 100,
   v: 12,
-  capacity: 100 * 12,
   maxdod: 0.8,
   cRate: 20,
-  hour: [0],
-  wh: [240],
 };
-let hr = 0;
+battery.capacity = battery.ah * battery.v;
 let fanAngle = 0;
-let fanEnergy = 0;
-let solarEnergy = 0;
 const button = {
   x: 320,
   y: 152,
   r: 10,
 };
+let circuit;
 
 function setup() {
   createCanvas(400, 400);
 
-  plot = createPlot(battery);
+  circuit = createTable(['Time', 'Solar', 'Battery', 'Fan']);
+  const timeStep = circuit.addRow();
+  timeStep.set('Time', 0);
+  timeStep.set('Solar', 0);
+  timeStep.set('Battery', battery.capacity / 2);
+  timeStep.set('Fan', 0);
+
+  plot = createPlot(circuit);
   plot.size(width, height / 2);
   const props = {
     isDynamic: true,
@@ -48,33 +51,29 @@ function draw() {
   drawCircuit();
 
   plot.title('Battery energy storage');
-  plot.xlabel('Hour');
+  plot.xlabel('Time');
   plot.ylabel('Energy (Wh)');
-  plot.line({ x: 'hour', y: 'wh' });
+  plot.line({ x: 'Time', y: 'Battery' });
   plot.render();
 
   update();
 }
 
 function update() {
+  const timeStep = circuit.addRow();
+  const last = circuit.getRowCount() - 1;
+  timeStep.set('Time', last);
   // supply
-  solarEnergy = random(100, 300);
+  timeStep.set('Solar', random(100, 300));
   // demand
   const { x, y, r } = button;
   if (mouseIsPressed && dist(x, y, mouseX, mouseY) < r) {
-    fanEnergy = 200;
+    timeStep.set('Fan', 200);
   } else {
-    fanEnergy = 0;
+    timeStep.set('Fan', 0);
   }
   // physics
   runCircuit();
-  // data management
-  if (battery.hour.length > 48) {
-    battery.hour.shift();
-    battery.wh.shift();
-  }
-  // time
-  hr += 1;
 }
 
 function drawSky() {
@@ -85,6 +84,8 @@ function drawSky() {
   noStroke();
   circle(80, 30, 50);
   // cloud
+  const last = circuit.getRowCount() - 1;
+  const solarEnergy = circuit.get(last, 'Solar');
   const a = 70 - map(solarEnergy, 100, 300, 0, 20);
   fill(255, a);
   ellipse(80, 45, 100, 30);
@@ -117,14 +118,17 @@ function drawBattery() {
   translate(-w / 2, 0);
   rect(0, 0, w, h);
   fill('limegreen');
-  const last = battery.wh.length - 1;
-  w = map(battery.wh[last], 0, battery.capacity, 0, w);
+  const last = circuit.getRowCount() - 1;
+  const charge = circuit.get(last, 'Battery');
+  w = map(charge, 0, battery.capacity, 0, w);
   rect(0, 0, w, h);
   pop();
 }
 
 function drawFan() {
   push();
+  const last = circuit.getRowCount() - 1;
+  const fanEnergy = circuit.get(last, 'Fan');
   const angleSpeed = fanEnergy * 0.1;
   fanAngle += angleSpeed;
   translate(320, 90);
@@ -138,8 +142,9 @@ function drawFan() {
   stroke('black');
   strokeWeight(2);
   circle(0, 0, 100);
-  const last = battery.wh.length - 1;
-  if (battery.wh[last] > (1 - battery.maxdod) * battery.capacity) {
+  const supply = circuit.get(last, 'Battery');
+  const minCharge = (1 - battery.maxdod) * battery.capacity;
+  if (supply > minCharge) {
     rotate(fanAngle);
   }
   // blades
@@ -163,6 +168,12 @@ function drawFan() {
   }
   noStroke();
   circle(0, 0, 2 * r);
+  stroke('white');
+  strokeWeight(3);
+  scale(0.5);
+  line(0, -r / 2, 0, r / 4);
+  noFill();
+  arc(0, 0, 2 * r, 2 * r, -QUARTER_PI, 5 * QUARTER_PI);
   pop();
 }
 
@@ -209,25 +220,25 @@ function drawCircuit() {
 }
 
 function runCircuit() {
-  // add time step
-  battery.hour.push(hr);
-  battery.wh.push(0);
-  const last = battery.wh.length - 1;
-  // compute supply and demand
+  const last = circuit.getRowCount() - 1;
+  const solarEnergy = circuit.get(last, 'Solar');
+  const prevCharge = circuit.get(last - 1, 'Battery');
+  const fanEnergy = circuit.get(last, 'Fan');
   const maxCharge = battery.capacity / battery.cRate;
+  // compute supply and demand
   if (solarEnergy > fanEnergy) {
     // charging
-    let demand = battery.capacity - battery.wh[last - 1];
+    let demand = battery.capacity - prevCharge;
     let supply = solarEnergy - fanEnergy;
     demand = min(demand, maxCharge);
     supply = min(supply, demand);
-    battery.wh[last] = battery.wh[last - 1] + supply;
+    circuit.set(last, 'Battery', prevCharge + supply);
   } else {
     // discharging
     let demand = fanEnergy - solarEnergy;
-    let supply = battery.wh[last - 1] - (1 - battery.maxdod) * battery.capacity;
+    let supply = prevCharge - (1 - battery.maxdod) * battery.capacity;
     supply = constrain(supply, 0, maxCharge);
     demand = min(supply, demand);
-    battery.wh[last] = battery.wh[last - 1] - demand;
+    circuit.set(last, 'Battery', prevCharge - demand);
   }
 }
