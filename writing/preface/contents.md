@@ -5,13 +5,13 @@
         <p><a href="#/contents">Contents</a></p>
         <p><a href="#/acknowledgments">Acknowledgments</a></p>
         <p><a href="#/introduction">Introduction</a></p>
-        <p><a href="#/chapter-one">Chapter 1. Energy</a></p>
-        <p><a href="#/chapter-two">Chapter 2. Electricity</a></p>
-        <p><a href="#/chapter-three">Chapter 3. Batteries</a></p>
-        <p><a href="#/chapter-four">Chapter 4. Data Science</a></p>
-        <p><a href="#/chapter-five">Chapter 5. Wind Power</a></p>
-        <p><a href="#/chapter-six">Chapter 6. Solar Power</a></p>
-        <p><a href="#/chapter-seven">Chapter 7. Smart Grids</a></p>
+        <p><a href="#/chapter-1">Chapter 1. Energy</a></p>
+        <p><a href="#/chapter-2">Chapter 2. Electricity</a></p>
+        <p><a href="#/chapter-3">Chapter 3. Batteries</a></p>
+        <p><a href="#/chapter-4">Chapter 4. Data Science</a></p>
+        <p><a href="#/chapter-5">Chapter 5. Wind Power</a></p>
+        <p><a href="#/chapter-6">Chapter 6. Solar Power</a></p>
+        <p><a href="#/chapter-7">Chapter 7. Smart Grids</a></p>
         <p><a href="#/appendix">Appendix</a></p>
     </div>
     <div>
