@@ -1,1 +1,0 @@
-<h3 class="title">1.1 Sketches</h3>
