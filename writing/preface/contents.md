@@ -1,18 +1,18 @@
-<h3 class="title">Contents</h3>
+<h2 class="chapter-title">Contents</h2>
 <div class="split-grid">
     <div class="main-text small-text">
-        <p class="title"><a href="#/preface">Preface</a></p>
-        <p class="title"><a href="#/contents">Contents</a></p>
-        <p class="title"><a href="#/acknowledgments">Acknowledgments</a></p>
-        <p class="title"><a href="#/introduction">Introduction</a></p>
-        <p class="title"><a href="#/chapter-one">Chapter 1. Energy</a></p>
-        <p class="title"><a href="#/chapter-two">Chapter 2. Electricity</a></p>
-        <p class="title"><a href="#/chapter-three">Chapter 3. Batteries</a></p>
-        <p class="title"><a href="#/chapter-four">Chapter 4. Data Science</a></p>
-        <p class="title"><a href="#/chapter-five">Chapter 5. Wind Power</a></p>
-        <p class="title"><a href="#/chapter-six">Chapter 6. Solar Power</a></p>
-        <p class="title"><a href="#/chapter-seven">Chapter 7. Smart Grids</a></p>
-        <p class="title"><a href="#/appendix">Appendix</a></p>
+        <p><a href="#/preface">Preface</a></p>
+        <p><a href="#/contents">Contents</a></p>
+        <p><a href="#/acknowledgments">Acknowledgments</a></p>
+        <p><a href="#/introduction">Introduction</a></p>
+        <p><a href="#/chapter-one">Chapter 1. Energy</a></p>
+        <p><a href="#/chapter-two">Chapter 2. Electricity</a></p>
+        <p><a href="#/chapter-three">Chapter 3. Batteries</a></p>
+        <p><a href="#/chapter-four">Chapter 4. Data Science</a></p>
+        <p><a href="#/chapter-five">Chapter 5. Wind Power</a></p>
+        <p><a href="#/chapter-six">Chapter 6. Solar Power</a></p>
+        <p><a href="#/chapter-seven">Chapter 7. Smart Grids</a></p>
+        <p><a href="#/appendix">Appendix</a></p>
     </div>
     <div>
         <p class="main-text small-text">

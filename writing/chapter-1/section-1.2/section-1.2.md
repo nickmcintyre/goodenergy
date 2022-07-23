@@ -1,1 +1,1 @@
-<h2 class="title">1.2 Vectors</h2>
+<h2 class="section-title">1.2 Vectors</h2>

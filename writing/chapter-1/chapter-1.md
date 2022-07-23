@@ -1,4 +1,4 @@
-<h1 class="title">Chapter 1. Energy</h1>
+<h1 class="chapter-title">Chapter 1. Energy</h1>
 <div class="quad-grid">
     <div></div>
     <div>

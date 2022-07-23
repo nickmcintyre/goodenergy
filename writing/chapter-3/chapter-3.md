@@ -1,4 +1,4 @@
-<h1 class="title">Chapter 3. Batteries</h1>
+<h1 class="chapter-title">Chapter 3. Batteries</h1>
 <div class="quad-grid">
     <div></div>
     <div>

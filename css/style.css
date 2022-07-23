@@ -1,5 +1,11 @@
-.subtitle {
-    font-family: 'Enriqueta', serif !important;
+.title {
+    font-size: 5rem !important;
+}
+.chapter-title {
+    font-size: larger !important;
+}
+.section-title {
+    font-size: larger !important;
 }
 .main-text {
     text-align: left;
@@ -46,4 +52,8 @@ blockquote {
     margin: 0 !important;
     border-left: 3px darkgray solid !important;
     padding-left: 1em !important;
+}
+.padding {
+    height: 20px;
+    width: 100%;
 }

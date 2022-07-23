@@ -1,1 +1,1 @@
-<h3 class="title">Appendix</h3>
+<h1 class="chapter-title">Appendix</h1>

@@ -1,1 +1,1 @@
-<h2 class="title">7.4 Optimization</h2>
+<h2 class="section-title">7.4 Optimization</h2>
