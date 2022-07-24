@@ -1,1 +1,1 @@
-<h2 class="section-title">2.2 Electromotive Force</h2>
+<h2 class="section-title">2.2 Electric Potential</h2>

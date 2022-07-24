@@ -2,8 +2,8 @@
 <div class="quad-grid">
     <div></div>
     <div>
-        <p class="main-text small-text">2.1 – <a href="#/section-2.1">Charge</a></p>
-        <p class="main-text small-text">2.2 – <a href="#/section-2.2">Electromotive Force</a></p>
+        <p class="main-text small-text">2.1 – <a href="#/section-2.1">Electrostatic Force</a></p>
+        <p class="main-text small-text">2.2 – <a href="#/section-2.2">Electric Potential</a></p>
     </div>
     <div>
         <p class="main-text small-text">2.3 – <a href="#/section-2.3">Series Circuits</a></p>
