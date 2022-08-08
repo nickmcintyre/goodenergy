@@ -1,1 +1,1 @@
-<h2 class="section-title">6.2 Solar Panels</h2>
+<h2 class="section-title">6.2 Visualizations</h2>

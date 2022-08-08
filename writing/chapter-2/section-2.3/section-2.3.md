@@ -1,1 +1,1 @@
-<h2 class="section-title">2.3 Series Circuits</h2>
+<h2 class="section-title">2.3 Friction</h2>
