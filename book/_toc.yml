@@ -1,0 +1,21 @@
+# In _toc.yml
+format: jb-book
+root: index
+parts:
+- numbered: false
+  chapters:
+  - file: prologue
+  - file: introduction
+  - file: vectors
+  - file: forces
+  - file: energy
+  - file: electricity
+  - file: batteries
+  - file: data-science
+  - file: wind-power
+  - file: solar-power
+  - file: smart-grids
+  - file: evolution
+  - file: epilogue
+  - file: appendix
+  - file: credits
