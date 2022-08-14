@@ -6,16 +6,11 @@ parts:
   chapters:
   - file: prologue
   - file: introduction
-  - file: vectors
-  - file: forces
-  - file: energy
-  - file: electricity
-  - file: batteries
+  - file: climate-change
   - file: data-science
-  - file: wind-power
-  - file: solar-power
-  - file: smart-grids
-  - file: evolution
+  - file: inequality
+  - file: spatial-analysis
+  - file: visualizing-justice
   - file: epilogue
   - file: appendix
   - file: credits

@@ -1,2 +1,2 @@
 # Good Energy
-> Getting started with renewable energy and generative design in p5.js
+> An artist's guide to seeking climate justice with p5.js
