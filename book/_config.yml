@@ -1,7 +1,7 @@
 title: Good Energy
 author: Nick McIntyre
 logo: _static/ge-logo.png
-description: Getting started with renewable energy and generative design in p5.js
+description: An artist's guide to seeking climate justice with p5.js
 
 html:
   baseurl: https://goodenergy.cc
@@ -15,5 +15,5 @@ sphinx:
     html_theme_options:
       repository_url: https://github.com/nickmcintyre/goodenergy
       repository_branch: main
-      description: Getting started with renewable energy and generative design in p5.js
-      keywords: p5.js, renewable energy, generative design, climate change, math, science, engineering, creative coding
+      description: An artist's guide to seeking climate justice with p5.js
+      keywords: p5.js, climate justice, climate change, data science, spatial analysis
