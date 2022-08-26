@@ -6,11 +6,11 @@ parts:
   chapters:
   - file: prologue
   - file: introduction
-  - file: climate-change
   - file: data-science
-  - file: inequality
   - file: spatial-analysis
-  - file: visualizing-justice
+  - file: climate-change
+  - file: climate-justice
+  - file: artistic-activism
   - file: epilogue
   - file: appendix
   - file: credits
