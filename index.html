@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Good Energy</title>
+    <meta
+      name="description"
+      content="An artist's guide to seeking climate justice with p5.js"
+    />
+    <style>
+      @font-face {
+        font-family: "Montserrat";
+        src: url("fonts/montserrat-regular.woff2") format("woff2"),
+          url("fonts/montserrat-regular.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1e90ff">
+    <meta name="msapplication-TileColor" content="#1e90ff">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="js/p5.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      let logo;
+      let imgSize;
+
+      function preload() {
+        logo = loadImage("/android-chrome-512x512.png");
+      }
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight);
+        
+        textFont("Montserrat");
+        textSize(12);
+        textAlign(CENTER, CENTER);
+        imageMode(CENTER);
+        describe("A sun with five circles in its center. The circles form a pentagon and are connected by lines to form a network.");
+        imgSize = min(width, height) / 2.5;
+      }
+
+      function draw() {
+        background("#1e90ff");
+
+        // logo
+        image(logo, width / 2, height / 2, imgSize, imgSize);
+        
+        // copyright
+        noStroke();
+        fill("white");
+        const copyright = `Copyright © ${year()} Nick McIntyre. Made with ♡ in Texas.`;
+        text(copyright, width / 2, height - 15);
+      }
+
+      function windowResized() {
+        resizeCanvas(windowWidth, windowHeight);
+        imgSize = min(width, height) / 2.5;
+      }
+    </script>
+  </body>
+</html>
